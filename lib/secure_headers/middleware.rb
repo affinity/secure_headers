@@ -26,7 +26,7 @@ module SecureHeaders
 
         headers["Set-Cookie"] = cookies.map do |cookie|
           SecureHeaders::Cookie.new(cookie, config).to_s
-        end.join("\n")
+        end
       end
     end
 
