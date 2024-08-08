@@ -44,7 +44,7 @@ module SecureHeaders
         @overrides ||= {}
         raise "Provide a configuration block" unless block_given?
         if named_append_or_override_exists?(name)
-          raise AlreadyConfiguredError, "Configuration already exists"
+          return @overrides[name]
         end
         @overrides[name] = block
       end
@@ -63,7 +63,7 @@ module SecureHeaders
         @appends ||= {}
         raise "Provide a configuration block" unless block_given?
         if named_append_or_override_exists?(name)
-          raise AlreadyConfiguredError, "Configuration already exists"
+          return @appends[name]
         end
         @appends[name] = block
       end
